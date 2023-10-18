@@ -2,9 +2,11 @@ package br.com.petz.clientepetz.cliente.application.api;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import br.com.petz.clientepetz.cliente.domain.Cliente;
-
+import lombok.Value;
+@Value
 public class ClienteListResponse {
 	private UUID idCliente;
 	private String nomeCompleto;
@@ -13,7 +15,18 @@ public class ClienteListResponse {
 	private String celular;
 	
 	public static List<ClienteListResponse> converte(List<Cliente> clientes) {
-		// TODO Auto-generated method stub
-		return null;
+		return clientes.stream()
+				.map(ClienteListResponse::new)
+				.collect(Collectors.toList());
 	}
+
+	private ClienteListResponse(Cliente cliente) {
+		this.idCliente = cliente.getIdCliente();
+		this.nomeCompleto = cliente.getNomeCompleto();
+		this.cpf = cliente.getCpf();
+		this.email = cliente.getEmail();
+		this.celular = cliente.getCelular();
+	}
+	
+	
 }
