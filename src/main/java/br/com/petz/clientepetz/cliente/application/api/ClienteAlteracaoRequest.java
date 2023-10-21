@@ -2,11 +2,8 @@ package br.com.petz.clientepetz.cliente.application.api;
 
 import java.time.LocalDate;
 
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.br.CPF;
 
 import br.com.petz.clientepetz.cliente.domain.Sexo;
 import lombok.Value;
